@@ -1,7 +1,13 @@
 import React from 'react'
+import CourseSchedule from '../../components/courseSchedule/CourseSchedule'
 
 export default function CoursePage() {
+  const course = {
+    
+  }
   return (
-    <div>CoursePage</div>
+   <>
+    <CourseSchedule course = {course}/>
+   </>
   )
 }
