@@ -14,8 +14,8 @@ export default function SearchBar() {
   };
 
   return (
-    <div class="mx-auto mb-4">
-      <div class="relative w-full">
+    <div class="m-5 w-[80%]">
+      <div class="relative">
         <input
           type="search"
           ref={searchInput}

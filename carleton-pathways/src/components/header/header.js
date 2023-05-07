@@ -4,8 +4,10 @@ import logo from "../header/image.png";
 const header = () => {
   return (
     <div class="flex">
-      <img class="" src={logo} alt="alt" />
-      <SearchBar />
+      <div class=" border-cyan-600 border-4">
+        <img src={logo} alt="alt" />
+      </div>
+      <SearchBar/>
     </div>
   );
 };
