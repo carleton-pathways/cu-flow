@@ -1,10 +1,10 @@
 import React from 'react'
 import CourseScheduleRow from '../courseScheduleRow/CourseScheduleRow'
 
-export default function CourseScheduleTable() {
+export default function CourseScheduleTable(props) {
   return (
     <>
-    <CourseScheduleRow/>
+    <CourseScheduleRow course={props.course}/>
     </>
   )
 }

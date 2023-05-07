@@ -2,11 +2,11 @@ import React from 'react'
 import CourseScheduleHeader from '../courseScheduleHeader/CourseScheduleHeader'
 import CourseScheduleTable from '../courseScheduleTable/CourseScheduleTable'
 
-export default function CourseSchedule() {
+export default function CourseSchedule(props) {
   return (
     <>
     <CourseScheduleHeader/>
-    <CourseScheduleTable/>
+    <CourseScheduleTable course = {props.course}/>
     </>
   )
 }
