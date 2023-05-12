@@ -7,9 +7,9 @@ export default function TermSelector() {
 
   return (
     <>
-    <Term termName = {"F"}/>
-    <Term termName = {"W"}/>
-    <Term termName = {"S"}/>
+    <span class = "m-1"><Term termName = {"F"}/></span>
+    <span class = "m-1"><Term termName = {"W"}/></span>
+    <span class = "m-1"><Term termName = {"S"}/></span>
     </>
   )
 }
