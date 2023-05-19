@@ -1,5 +1,7 @@
 import React from 'react'
 import CourseSchedule from '../../components/courseSchedule/CourseSchedule'
+import Header from '../../components/header/Header'
+import CourseHeader from '../../components/courseHeader/CourseHeader'
 
 export default function CoursePage() {
   const course = {
@@ -11,8 +13,12 @@ export default function CoursePage() {
     instructor: "Alexa Sharp",
   }
   return (
-   <div class = "mx-1">
-    <CourseSchedule course = {course}/>
-   </div>
+    <>
+    <Header/>
+    <CourseHeader/>
+    <div class = "mx-1">
+      <CourseSchedule course = {course}/>
+    </div>
+   </>
   )
 }

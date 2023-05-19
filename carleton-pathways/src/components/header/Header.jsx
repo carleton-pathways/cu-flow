@@ -1,7 +1,7 @@
 import SearchBar from "../searchBar/SearchBar";
-import logo from "../header/image.png";
+import logo from "./image.png";
 
-const header = () => {
+export default function Header() {
   return (
     <div class="flex">
       <div class=" border-cyan-600 border-4">
@@ -11,5 +11,3 @@ const header = () => {
     </div>
   );
 };
-
-export default header;
