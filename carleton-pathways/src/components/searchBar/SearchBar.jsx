@@ -17,8 +17,8 @@ export default function SearchBar() {
 
   return (
     <>
-    <div class="mx-auto mb-4">
-      <div class="relative w-full sm:w-1/2 md:w-1/3 lg:w-1/2">
+    <div class="flex items-center  w-full ml-2">
+      <div class="w-1/2">
         <input
         type="search"
         ref={searchInput}
