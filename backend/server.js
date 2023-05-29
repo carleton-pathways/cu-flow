@@ -1,6 +1,6 @@
 const express = require("express");
-const dbo = require("./db/conn");
 const courseRoutes = require("./routes/courses");
+const mongoose = require("mongoose");
 
 require("dotenv").config();
 const app = express();
@@ -16,8 +16,18 @@ app.get("/", (req, res) => {
 });
 app.use("/search", courseRoutes);
 
-app.listen(process.env.PORT, () => {
-  console.log("Server started on port", process.env.PORT);
-});
+mongoose
+  .connect(process.env.URI)
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log(
+        "Connected to database and server started on port",
+        process.env.PORT
+      );
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 process.env;
