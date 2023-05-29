@@ -1,5 +1,6 @@
 const express = require("express");
 const dbo = require("./db/conn");
+const courseRoutes = require("./routes/courses");
 
 require("dotenv").config();
 const app = express();
@@ -13,6 +14,7 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.json({ mssg: "App" });
 });
+app.use("/search", courseRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log("Server started on port", process.env.PORT);
