@@ -1,12 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const { getCourse, getCourses } = require("../controllers/courseController");
 
 //get specified course
-router.get("/:id", (req, res) => {
-  console.log(req.path.substring(1));
-  res.json({
-    mssg: req.path.substring(1),
-  });
-});
+router.get("/:id", getCourse);
+router.get("/", getCourses);
 
 module.exports = router;

@@ -19,6 +19,9 @@ app.use("/search", courseRoutes);
 mongoose
   .connect(process.env.URI)
   .then(() => {
+    const dbName = mongoose.connection.db.databaseName;
+    console.log("Connected to database:", dbName);
+
     app.listen(process.env.PORT, () => {
       console.log(
         "Connected to database and server started on port",
