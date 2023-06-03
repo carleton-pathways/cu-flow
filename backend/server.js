@@ -11,9 +11,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.json({ mssg: "App" });
-});
+app.use(express.json())
+
 app.use("/search", courseRoutes);
 
 mongoose
