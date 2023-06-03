@@ -2,7 +2,7 @@ const Course = require("../model/courseModel");
 const mongoose = require("mongoose");
 
 //Gets a specific course from mongoID
-const getCourse = async (req, res) => {
+const showCourse = async (req, res) => {
   const { id } = req.params;
   console.log("getting course from ID: ", id);
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -19,7 +19,7 @@ const getCourse = async (req, res) => {
 };
 
 //Gets all Courses
-const getAllCourses = async (req, res) => {
+const indexCourse = async (req, res) => {
   console.log("Getting all courses")
   const courses = await Course.find({}).sort({ createdAt: -1 });
   res.status(200).json(courses);
@@ -145,4 +145,4 @@ const updateCourse = async (req,res) => {
 
 
 
-module.exports = { getCourse, getAllCourses,createCourse,deleteCourse,updateCourse };
+module.exports = { showCourse, indexCourse,createCourse,deleteCourse,updateCourse };
