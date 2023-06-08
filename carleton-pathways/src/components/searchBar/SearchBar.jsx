@@ -17,12 +17,12 @@ export default function SearchBar() {
 
   return (
     <>
-    <div class="flex items-center  w-full ml-2">
-      <div class="w-1/2">
+    <div class="flex items-center ml-2 w-10/12">
+      <div class="w-full">
         <input
         type="search"
         ref={searchInput}
-        class="relative m-0 -mr-0.5 block w-full min-w-0 flex-auto rounded-l-full rounded-r-full border border-solid border-neutral-300 border-2 outline-2 bg-transparent bg-clip-padding px-3 py-[0.25rem] 
+        class="relative -mr-0.5 block w-full min-w-0 flex-auto rounded-l-full rounded-r-full border-solid border-neutral-300 border-2 outline-2 bg-transparent bg-clip-padding px-3 py-[0.25rem] 
         text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-100 ease-in-out focus:z-[3] focus:border-red-300 focus:text-neutral-700 
         focus:outline-none dark:placeholder:text-neutral-200 shadow-lg "
         placeholder="Search Course Code"
