@@ -1,3 +1,4 @@
+const { response } = require("express");
 const Course = require("../model/courseModel");
 const mongoose = require("mongoose");
 
@@ -17,6 +18,31 @@ const showCourse = async (req, res) => {
     course: course.faculty + course.course_code,
   });
 };
+
+
+
+//get course by name
+const courseByName = async (req, res) => {
+  const { id } = req.params;
+  console.log("getting course from ID: ", id);
+  
+  const course = await Course.find({faculty: id.substring(0,4), course_code: id.substring(4,8)}).exec()
+  
+
+  if (!course) {
+    return res.status(404).json({ error: "No such Course" });
+  }
+  if(course.length === 0){
+    return res.status(404).json({ error: "No such Course" });
+  }
+  res.status(200).json({
+    course
+  });
+  console.log(course)
+};
+
+
+
 
 //Gets all Courses
 const indexCourse = async (req, res) => {
@@ -145,4 +171,4 @@ const updateCourse = async (req,res) => {
 
 
 
-module.exports = { showCourse, indexCourse,createCourse,deleteCourse,updateCourse };
+module.exports = { courseByName, showCourse, indexCourse,createCourse,deleteCourse,updateCourse };
