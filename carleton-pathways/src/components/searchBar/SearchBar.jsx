@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
 
 export default function SearchBar() {
+  const [searchQuery, setSearchQuery] = useState(null)
+  const [courses, setCourses] = useState(null)
   const searchInput = useRef(null)
 
   const handleSearch = () => {
-    const searchQuery = searchInput.current.value;
+    setSearchQuery(searchInput.current.value);
     console.log(searchQuery)
   }
   const handleKeyDown = (event) => {
@@ -13,6 +16,21 @@ export default function SearchBar() {
       handleSearch();
     }
   };
+
+  useEffect(() =>{
+    if(searchQuery === null){
+      return;
+    }
+    const fetchCourses = async () =>{
+      const response = await fetch('/search/course/' + searchQuery)
+      const json = await response.json()
+      if(response.ok){
+        setCourses(json.courses)
+      }
+      console.log(json)
+    }
+    fetchCourses()
+  },[searchQuery])
 
 
   return (
