@@ -1,9 +1,14 @@
-import React from 'react'
-import CourseSchedule from '../../components/courseSchedule/CourseSchedule'
+import React, { useState } from 'react';import CourseSchedule from '../../components/courseSchedule/CourseSchedule'
 import Header from '../../components/header/Header'
 import CourseHeader from '../../components/courseHeader/CourseHeader'
 
+
 export default function CoursePage() {
+  const [courses, setCourses] = useState(null)
+
+  const handleCoursesChange = (newCourses) => {
+    setCourses(newCourses);
+    console.log(courses)}
   const course = {
     faculty: "COMP",
     course_code: "1805",
@@ -19,7 +24,7 @@ export default function CoursePage() {
   }
   return (
     <>
-    <Header/>
+    <Header handleCoursesChange = {handleCoursesChange}/>
     <CourseHeader course={course}/>
     <div class = "mx-1">
       <CourseSchedule course = {course}/>
