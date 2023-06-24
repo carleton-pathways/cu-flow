@@ -21,28 +21,12 @@ export default function CourseScheduleRow(props) {
         </tr>
       </thead>
       <tr>
-        <th class = "font-normal"><CourseSection section={props.course.section}/></th>
-        <th class = "font-normal"><CourseAvailability availability={props.course.availability}/></th>
-        <th class = "font-normal"><CourseTime time={props.course.time}/></th>
-        <th class = "font-normal"><CourseDates dates = {props.course.dates}/></th>
-        <th class = "font-normal"><CourseLocation location={props.course.location}/></th>
-        <th class = "font-normal"><CourseInstructor instructor={props.course.instructor}/></th>
-      </tr>
-      <tr>
-        <th class = "font-normal"><CourseSection section={props.course.section}/></th>
-        <th class = "font-normal"><CourseAvailability availability={props.course.availability}/></th>
-        <th class = "font-normal"><CourseTime time={props.course.time}/></th>
-        <th class = "font-normal"><CourseDates dates = {props.course.dates}/></th>
-        <th class = "font-normal"><CourseLocation location={props.course.location}/></th>
-        <th class = "font-normal"><CourseInstructor instructor={props.course.instructor}/></th>
-      </tr>
-      <tr>
-        <th class = "font-normal"><CourseSection section={props.course.section}/></th>
-        <th class = "font-normal"><CourseAvailability availability={props.course.availability}/></th>
-        <th class = "font-normal"><CourseTime time={props.course.time}/></th>
-        <th class = "font-normal"><CourseDates dates = {props.course.dates}/></th>
-        <th class = "font-normal"><CourseLocation location={props.course.location}/></th>
-        <th class = "font-normal"><CourseInstructor instructor={props.course.instructor}/></th>
+        <th class = "font-normal"><CourseSection section={props.course[0].section}/></th>
+        <th class = "font-normal"><CourseAvailability availability={props.course[0].availability}/></th>
+        <th class = "font-normal"><CourseTime time={props.course[0].time}/></th>
+        <th class = "font-normal"><CourseDates dates = {props.course[0].dates}/></th>
+        <th class = "font-normal"><CourseLocation location={props.course[0].location}/></th>
+        <th class = "font-normal"><CourseInstructor instructor={props.course[0].instructor}/></th>
       </tr>
     </table>
   )
