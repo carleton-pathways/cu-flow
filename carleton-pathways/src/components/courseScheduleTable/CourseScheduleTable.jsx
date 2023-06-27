@@ -24,8 +24,8 @@ export default function CourseScheduleRow(props) {
       <tr>
         <th class = "font-normal"><CourseSection section={course.section}/></th>
         <th class = "font-normal"><CourseAvailability availability={course.status}/></th>
-        <th class = "font-normal"><CourseTime time={course.time}/></th>
-        {course.dates && <th class = "font-normal"><CourseDates dates = {course.dates}/></th>}
+        <th class = "font-normal"><CourseTime course={course}/></th>
+        {course.days && <th class = "font-normal"><CourseDates dates = {course.days} /></th>}
         <th class = "font-normal"><CourseLocation location={course.building}/></th>
         <th class = "font-normal"><CourseInstructor instructor={course.instructor}/></th>
       </tr>
