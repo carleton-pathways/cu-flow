@@ -10,11 +10,11 @@ export default function CourseHeader(props) {
         </div>
         <div className="flex-item bg-[#CA464A] w-[66%] rounded-3xl text-center p-2 text-white sm:m-4">
           <div className="container text-white">
-            {props.course[0].description}
+            {props.course[0].section_information}
           </div>
         </div>
       </div>
-    <div className="text-[16px] text-white text-center p-1">{props.course[0].prereqs}</div>
+    <div className="text-[16px] text-white text-center p-1">{props.course[0].prereqs_string}</div>
     </div>
   );
 }

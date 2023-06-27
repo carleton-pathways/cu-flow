@@ -8,7 +8,7 @@ import CourseInstructor from '../courseScheduleRowComponents/CourseInstructor'
 
 export default function CourseScheduleRow(props) {
   return (
-    
+      
     <table class = "font-table text-sm table-auto w-[85%] m-3">
       <thead class = "font-semibold">
         <tr>
@@ -20,14 +20,17 @@ export default function CourseScheduleRow(props) {
         <th>Instructor</th>
         </tr>
       </thead>
+      {props.course.map((course)=>(
       <tr>
-        <th class = "font-normal"><CourseSection section={props.course[0].section}/></th>
-        <th class = "font-normal"><CourseAvailability availability={props.course[0].availability}/></th>
-        <th class = "font-normal"><CourseTime time={props.course[0].time}/></th>
-        <th class = "font-normal"><CourseDates dates = {props.course[0].dates}/></th>
-        <th class = "font-normal"><CourseLocation location={props.course[0].location}/></th>
-        <th class = "font-normal"><CourseInstructor instructor={props.course[0].instructor}/></th>
+        <th class = "font-normal"><CourseSection section={course.section}/></th>
+        <th class = "font-normal"><CourseAvailability availability={course.status}/></th>
+        <th class = "font-normal"><CourseTime time={course.time}/></th>
+        {course.dates && <th class = "font-normal"><CourseDates dates = {course.dates}/></th>}
+        <th class = "font-normal"><CourseLocation location={course.building}/></th>
+        <th class = "font-normal"><CourseInstructor instructor={course.instructor}/></th>
       </tr>
+
+      ))}
     </table>
   )
 }

@@ -27,9 +27,9 @@ export default function SearchBar({onCoursesChange}) {
       const response = await fetch('/search/course/' + searchQuery)
       const json = await response.json()
       if(response.ok){
-        onCoursesChange(json.courses)
+        onCoursesChange(json)
       }
-      console.log(json)
+      // console.log(json)
     }
     fetchCourses()
   },[searchQuery])
