@@ -1,11 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-export default function SearchBar() {
+
+export default function SearchBar({onCoursesChange}) {
+  const [searchQuery, setSearchQuery] = useState(null)
+  
   const searchInput = useRef(null)
 
   const handleSearch = () => {
-    const searchQuery = searchInput.current.value;
-    console.log(searchQuery)
+    setSearchQuery(searchInput.current.value);
+    
   }
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -13,6 +16,23 @@ export default function SearchBar() {
       handleSearch();
     }
   };
+
+  useEffect(() =>{
+    console.log("ran")
+    console.log(searchQuery)
+    if(searchQuery === null){
+      return;
+    }
+    const fetchCourses = async () =>{
+      const response = await fetch('/search/course/' + searchQuery)
+      const json = await response.json()
+      if(response.ok){
+        onCoursesChange(json)
+      }
+      // console.log(json)
+    }
+    fetchCourses()
+  },[searchQuery])
 
 
   return (

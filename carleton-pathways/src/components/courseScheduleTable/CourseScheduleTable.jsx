@@ -8,7 +8,7 @@ import CourseInstructor from '../courseScheduleRowComponents/CourseInstructor'
 
 export default function CourseScheduleRow(props) {
   return (
-    
+      
     <table class = "font-table text-sm table-auto w-[85%] m-3">
       <thead class = "font-semibold">
         <tr>
@@ -20,30 +20,17 @@ export default function CourseScheduleRow(props) {
         <th>Instructor</th>
         </tr>
       </thead>
+      {props.course.map((course)=>(
       <tr>
-        <th class = "font-normal"><CourseSection section={props.course.section}/></th>
-        <th class = "font-normal"><CourseAvailability availability={props.course.availability}/></th>
-        <th class = "font-normal"><CourseTime time={props.course.time}/></th>
-        <th class = "font-normal"><CourseDates dates = {props.course.dates}/></th>
-        <th class = "font-normal"><CourseLocation location={props.course.location}/></th>
-        <th class = "font-normal"><CourseInstructor instructor={props.course.instructor}/></th>
+        <th class = "font-normal"><CourseSection section={course.section}/></th>
+        <th class = "font-normal"><CourseAvailability availability={course.status}/></th>
+        <th class = "font-normal"><CourseTime course={course}/></th>
+        {course.days && <th class = "font-normal"><CourseDates dates = {course.days} /></th>}
+        <th class = "font-normal"><CourseLocation location={course.building}/></th>
+        <th class = "font-normal"><CourseInstructor instructor={course.instructor}/></th>
       </tr>
-      <tr>
-        <th class = "font-normal"><CourseSection section={props.course.section}/></th>
-        <th class = "font-normal"><CourseAvailability availability={props.course.availability}/></th>
-        <th class = "font-normal"><CourseTime time={props.course.time}/></th>
-        <th class = "font-normal"><CourseDates dates = {props.course.dates}/></th>
-        <th class = "font-normal"><CourseLocation location={props.course.location}/></th>
-        <th class = "font-normal"><CourseInstructor instructor={props.course.instructor}/></th>
-      </tr>
-      <tr>
-        <th class = "font-normal"><CourseSection section={props.course.section}/></th>
-        <th class = "font-normal"><CourseAvailability availability={props.course.availability}/></th>
-        <th class = "font-normal"><CourseTime time={props.course.time}/></th>
-        <th class = "font-normal"><CourseDates dates = {props.course.dates}/></th>
-        <th class = "font-normal"><CourseLocation location={props.course.location}/></th>
-        <th class = "font-normal"><CourseInstructor instructor={props.course.instructor}/></th>
-      </tr>
+
+      ))}
     </table>
   )
 }
